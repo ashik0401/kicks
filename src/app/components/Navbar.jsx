@@ -7,7 +7,7 @@ import { HiUser } from "react-icons/hi";
 export default function Navbar() {
   return (
     <div className="py-8">
-      <div className="navbar md:w-11/12 mx-auto bg-white rounded-2xl md:h-24 w-89.5 h-13 p-4">
+      <div className="navbar md:w-full mx-auto bg-white rounded-2xl md:h-24  h-13 p-4">
         <div className="navbar-start lg:hidden ">
           <div className="dropdown">
             <label tabIndex={0} className="">

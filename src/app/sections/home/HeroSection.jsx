@@ -9,14 +9,14 @@ export default function HeroSection() {
   const [active, setActive] = useState(HERO_IMAGE[0]);
 
   return (
-    <section className="w-full md:w-11/12 mx-auto ">
-      <section className="w-full flex justify-center items-center overflow-hidden my-6">
+    <section className="w-full  ">
+      <section className="w-full flex justify-center items-center overflow-hidden mb-6">
         <h1 className="uppercase font-bold text-[14vw] leading-none whitespace-nowrap tracking-tighter w-full text-center">
           Do it <span className="text-[#4A69E2]">right</span>
         </h1>
       </section>
 
-      <section className="relative h-112.5 md:h-140 xl:h-212.5 rounded-4xl md:rounded-[64px] overflow-hidden text-white">
+      <section className="relative h-112.5 md:h-140 xl:h-187.5 rounded-4xl md:rounded-[64px] overflow-hidden text-white">
         <AnimatePresence mode="popLayout">
           <motion.div
             key={active.id}
@@ -57,7 +57,7 @@ export default function HeroSection() {
               <h2 className=" font-semibold font-sans   text-[#E7E7E3] text-sm">
                 Nike introducing the new air max for everyone's comfort
               </h2>
-              <button className="mt-8 rounded-full   bg-[#4A69E2] px-8 py-3   backdrop-blur-md transition-all hover:[#4A69E2/80] uppercase font-medium cursor-pointer">
+              <button className="mt-8 rounded-full   bg-[#4A69E2] px-8 py-3   backdrop-blur-md transition-all hover:bg-[#4A69E280] uppercase font-medium cursor-pointer">
                 Shop Now
               </button>
             </motion.div>
