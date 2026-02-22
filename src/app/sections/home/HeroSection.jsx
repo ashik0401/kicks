@@ -9,9 +9,9 @@ export default function HeroSection() {
   const [active, setActive] = useState(HERO_IMAGE[0]);
 
   return (
-    <section className="w-full  ">
+    <section className="md:w-10/12 mx-auto px-4 ">
       <section className="w-full flex justify-center items-center overflow-hidden mb-6">
-        <h1 className="uppercase font-bold text-[14vw] leading-none whitespace-nowrap tracking-tighter w-full text-center">
+        <h1 className="uppercase font-bold text-[14vw] leading-none whitespace-nowrap tracking-wider w-full text-center ">
           Do it <span className="text-[#4A69E2]">right</span>
         </h1>
       </section>
@@ -72,7 +72,7 @@ export default function HeroSection() {
               >
                 <Image
                   src={item.src}
-                  alt={item.title}
+                  alt={item.title || "product image"}
                   fill
                   sizes="(max-width: 768px) 150px, 300px"
                   className="object-cover transition-transform duration-700 group-hover:scale-110"

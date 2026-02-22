@@ -1,5 +1,6 @@
 import { Geist, Geist_Mono, Rubik } from "next/font/google";
 import "./globals.css";
+import { AppProvider } from "./context/AppContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,7 +28,7 @@ export default function RootLayout({ children }) {
       <body
         className={`antialiased ${geistSans.variable} ${geistMono.variable} ${rubik.className}`}
       >
-        {children}
+        <AppProvider>{children}</AppProvider>
       </body>
     </html>
   );
