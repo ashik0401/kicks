@@ -55,8 +55,8 @@ export default async function CategorySection() {
                 <h3 className=" xl:text-[36px]  font-semibold  uppercase text-black text-2xl lg:text-3xl">
                   {category.name}
                 </h3>
-                <button className="text-white bg-[#232321] rounded-lg p-3 cursor-pointer  ">
-                  <IoMdArrowUp size={24} className="rotate-45" />
+                <button className="text-white bg-[#232321] rounded-lg  cursor-pointer flex justify-center items-center  md:w-12 md:h-12">
+                  <IoMdArrowUp  className="rotate-45 text-2xl" />
                 </button>
               </div>
             </div>

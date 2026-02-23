@@ -5,6 +5,7 @@ import Image from "next/image";
 
 export default function ReviewsSection() {
   const [reviews, setReviews] = useState([]);
+  const [showAll, setShowAll] = useState(false);
 
   useEffect(() => {
     fetch("/reviews.json")
@@ -12,23 +13,28 @@ export default function ReviewsSection() {
       .then((data) => setReviews(data));
   }, []);
 
+  const visibleReviews = showAll ? reviews : reviews.slice(0, 3);
+
   return (
     <section className="md:w-10/12 px-4 mx-auto py-20">
       <div className="flex items-center justify-between mb-12">
         <h2 className="text-3xl md:text-[74px] font-semibold uppercase text-[#232321]">
           Reviews
         </h2>
-        <button className="px-8 py-2 bg-[#4A69E2] text-sm text-white rounded-lg hover:bg-[#2648d3] font-medium transition uppercase cursor-pointer">
-          See all
+        <button
+          onClick={() => setShowAll(!showAll)}
+          className="px-8 py-2 bg-[#4A69E2] text-sm text-white rounded-lg hover:bg-[#2648d3] font-medium transition uppercase cursor-pointer"
+        >
+          {showAll ? "Show less" : "See all"}
         </button>
       </div>
 
-      <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-8 ">
-        {reviews.map((review, index) => (
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-8">
+        {visibleReviews.map((review, index) => (
           <div
             key={review.id}
-            className={`bg-white  rounded-4xl shadow-md overflow-hidden flex flex-col ${
-              index !== 0 ? "hidden md:flex" : ""
+            className={`bg-white rounded-4xl shadow-md overflow-hidden flex flex-col ${
+              !showAll && index !== 0 ? "hidden md:flex" : ""
             }`}
           >
             <div className="p-6 flex justify-between gap-4 bg-[#FAFAFA]">
@@ -37,7 +43,7 @@ export default function ReviewsSection() {
                   <h3 className="font-semibold mb-2 text-[#232321] text-[24px] line-clamp-1">
                     {review.title}
                   </h3>
-                  <p className="text-[#232321] mb-4 font-sans line-clamp-2 opacity-80 ">
+                  <p className="text-[#232321] mb-4 font-sans line-clamp-2 opacity-80">
                     {review.description}
                   </p>
                 </div>
@@ -62,7 +68,7 @@ export default function ReviewsSection() {
               </div>
             </div>
 
-            <div className="relative w-full xl:h-81.5 lg:h-50 sm:h-90 h-70 ">
+            <div className="relative w-full xl:h-81.5 lg:h-50 sm:h-90 h-70">
               <Image
                 src={review.product}
                 alt={review.title}

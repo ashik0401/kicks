@@ -25,5 +25,32 @@
     "count": 156,
     "profile": "https://i.pravatar.cc/100?img=33",
     "product": "https://picsum.photos/600/400?random=23"
+  },
+  {
+    "id": 4,
+    "title": "Excellent Design",
+    "description": "The design is modern and eye-catching. It fits perfectly with my style.",
+    "rating": 5,
+    "count": 102,
+    "profile": "https://i.pravatar.cc/100?img=44",
+    "product": "https://picsum.photos/600/400?random=24"
+  },
+  {
+    "id": 5,
+    "title": "Good but Could Improve",
+    "description": "Overall a good product, but there is slight room for improvement in durability.",
+    "rating": 3,
+    "count": 64,
+    "profile": "https://i.pravatar.cc/100?img=55",
+    "product": "https://picsum.photos/600/400?random=25"
+  },
+  {
+    "id": 6,
+    "title": "Fast Shipping & Great Support",
+    "description": "Customer support was very helpful and the shipping was quicker than expected.",
+    "rating": 4,
+    "count": 91,
+    "profile": "https://i.pravatar.cc/100?img=66",
+    "product": "https://picsum.photos/600/400?random=26"
   }
 ]

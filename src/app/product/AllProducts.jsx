@@ -29,10 +29,10 @@ export default function AllProducts() {
             <button
               disabled={page === 0}
               onClick={() => setPage(page - 1)}
-              className={`md:w-10 w-9 md:h-10 h-9 flex items-center justify-center cursor-pointer rounded-lg transition ${
+              className={`md:w-10 w-9 md:h-10 h-9 flex items-center justify-center  rounded-lg transition ${
                 page === 0
-                  ? "bg-gray-200 cursor-not-allowed"
-                  : "bg-[#232321] hover:bg-black text-white"
+                  ? "bg-gray-300  cursor-not-allowed"
+                  : "bg-[#232321] hover:bg-black cursor-pointer text-white"
               }`}
             >
               <IoIosArrowBack size={16} />
@@ -40,10 +40,10 @@ export default function AllProducts() {
             <button
               disabled={page + 1 >= totalPages}
               onClick={() => setPage(page + 1)}
-              className={`md:w-10 w-9 md:h-10 h-9 flex items-center justify-center cursor-pointer rounded-lg transition ${
+              className={`md:w-10 w-9 md:h-10 h-9 flex items-center justify-center  rounded-lg transition ${
                 page + 1 >= totalPages
                   ? "bg-gray-200 cursor-not-allowed"
-                  : "bg-[#232321] hover:bg-black text-white"
+                  : "bg-[#232321] hover:bg-black cursor-pointer text-white"
               }`}
             >
               <IoIosArrowForward size={16} />
@@ -86,8 +86,7 @@ export default function AllProducts() {
                     onClick={handleClick}
                     className="w-full bg-[#232321] text-white py-2 rounded-lg hover:bg-black transition cursor-pointer mt-2"
                   >
-                    Add to Cart -{" "}
-                    <span className="text-[#FFA52F]">${product.price}</span>
+                    Add to Cart
                   </button>
                 </div>
               </Link>
