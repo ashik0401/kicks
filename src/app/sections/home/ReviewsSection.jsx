@@ -37,7 +37,7 @@ export default function ReviewsSection() {
                   <h3 className="font-semibold mb-2 text-[#232321] text-[24px] line-clamp-1">
                     {review.title}
                   </h3>
-                  <p className="text-[#232321] mb-4 font-sans line-clamp-2">
+                  <p className="text-[#232321] mb-4 font-sans line-clamp-2 opacity-80 ">
                     {review.description}
                   </p>
                 </div>

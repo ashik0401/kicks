@@ -3,27 +3,56 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useApp } from "../context/AppContext";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-export default function Products() {
+export default function AllProducts() {
   const { products, addToCart } = useApp();
+  const perPage = 4;
+  const [page, setPage] = useState(0);
   const router = useRouter();
-  const latestProducts = products.slice(-4).reverse();
+
+  const totalPages = Math.ceil(products.length / perPage);
+  const startIndex = page * perPage;
+  const endIndex = startIndex + perPage;
+  const currentProducts = products.slice(startIndex, endIndex);
 
   return (
-    <section className="md:w-10/12 mx-auto px-4 pb-32 mt-22.5">
+    <section className="md:w-10/12 mx-auto px-4 py-25  md:mt-22.5">
       <div>
-        <div className="relative flex justify-between items-center">
-          <h2 className="font-semibold uppercase xl:text-[74px] text-2xl text-[#232321] mb-8 lg:text-[55px] md:text-[40px]">
-            Don’t miss out <br /> new drops
+        <div className="relative flex justify-between items-center mb-6">
+          <h2 className="font-semibold uppercase lg:text-[48px] text-2xl text-[#232321] md:text-[40px]">
+            You may also like
           </h2>
-          <button className="text-sm font-medium bg-[#4A69E2] px-4 py-4 text-white rounded-lg absolute right-0 bottom-10 uppercase tracking-wider cursor-pointer">
-            Shop new drops
-          </button>
+          <div className="flex items-center gap-3 text-black">
+            <button
+              disabled={page === 0}
+              onClick={() => setPage(page - 1)}
+              className={`md:w-10 w-9 md:h-10 h-9 flex items-center justify-center cursor-pointer rounded-lg transition ${
+                page === 0
+                  ? "bg-gray-200 cursor-not-allowed"
+                  : "bg-[#232321] hover:bg-black text-white"
+              }`}
+            >
+              <IoIosArrowBack size={16} />
+            </button>
+            <button
+              disabled={page + 1 >= totalPages}
+              onClick={() => setPage(page + 1)}
+              className={`md:w-10 w-9 md:h-10 h-9 flex items-center justify-center cursor-pointer rounded-lg transition ${
+                page + 1 >= totalPages
+                  ? "bg-gray-200 cursor-not-allowed"
+                  : "bg-[#232321] hover:bg-black text-white"
+              }`}
+            >
+              <IoIosArrowForward size={16} />
+            </button>
+          </div>
         </div>
 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-          {latestProducts.map((product) => {
+          {currentProducts.map((product) => {
             const handleClick = (e) => {
               e.preventDefault();
               addToCart(product);
@@ -64,6 +93,17 @@ export default function Products() {
               </Link>
             );
           })}
+        </div>
+
+        <div className="flex justify-center gap-2 mt-6">
+          {Array.from({ length: totalPages }).map((_, i) => (
+            <div
+              key={i}
+              className={`w-5 h-1 rounded-full transition ${
+                page === i ? "bg-[#4A69E2]" : "bg-gray-300"
+              }`}
+            />
+          ))}
         </div>
       </div>
     </section>

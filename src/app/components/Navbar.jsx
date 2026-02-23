@@ -6,6 +6,7 @@ import { IoSearch } from "react-icons/io5";
 import { HiUser } from "react-icons/hi";
 import { useApp } from "../context/AppContext";
 import SearchSidebar from "../sections/search/SearchSidebar";
+import Link from "next/link";
 
 export default function Navbar() {
   const { cartItems } = useApp();
@@ -13,7 +14,7 @@ export default function Navbar() {
 
   return (
     <>
-      <div className="py-8 md:w-10/12 mx-auto px-4">
+      <div className="py-8 md:w-10/12 mx-auto px-4 sticky -top-8 z-50">
         <div className="navbar  bg-white rounded-2xl md:h-24  h-13 p-4">
           <div className="navbar-start space-x-2 lg:hidden ">
             <div className="dropdown">
@@ -108,7 +109,11 @@ export default function Navbar() {
               </li>
             </ul>
           </div>
+         <Link
+         href="/"
+         >
           <Image src={logo} alt="Logo" width="128px" height="32px" />
+         </Link>
 
           <div className="navbar-end md:space-x-10 space-x-3">
             <IoSearch
@@ -119,9 +124,11 @@ export default function Navbar() {
             <a className="cursor-pointer">
               <HiUser size={24} />
             </a>
-            <p className="bg-[#FFA52F]  rounded-full w-6 h-6 font-semibold text-center">
+            <Link
+            href="/cart"
+            className="bg-[#FFA52F]  rounded-full w-6 h-6 font-semibold text-center">
               {cartItems.length}
-            </p>
+            </Link>
           </div>
         </div>
       </div>
