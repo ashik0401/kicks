@@ -14,7 +14,7 @@ export default function Navbar() {
 
   return (
     <>
-      <div className="py-8 md:w-10/12 mx-auto px-4 sticky -top-8 z-50">
+      <div className="py-8 md:w-10/12 mx-auto px-4 ">
         <div className="navbar  bg-white rounded-2xl md:h-24  h-13 p-4">
           <div className="navbar-start space-x-2 lg:hidden ">
             <div className="dropdown">
