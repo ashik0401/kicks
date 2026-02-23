@@ -23,7 +23,7 @@ export default async function CategorySection() {
         <div className="flex items-center justify-between md:w-10/12 px-4 mx-auto mb-10">
           <h2 className="text-2xl md:text-[74px] font-semibold tracking-wider">Categories</h2>
           <div className="flex items-center gap-3 text-black">
-            <button className="md:w-10 w-9 md:h-10 h-9 flex items-center justify-center cursor-pointer rounded-lg bg-[#E7E7E3] hover:bg-white transition">
+            <button className="md:w-10 w-9 md:h-10 h-9 flex items-center justify-center rounded-lg bg-[#b6b6b2] cursor-not-allowed">
               <IoIosArrowBack size={16} />
             </button>
             <button className="md:w-10 w-9 md:h-10 h-9 flex items-center cursor-pointer justify-center rounded-lg bg-white transition">
